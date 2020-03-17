@@ -26,7 +26,8 @@ class IPerson(interface.Interface):
 
 
 class PersonForm(uvcsite.Form):
-    grok.context(interface.Interface)
+    grok.name('pf')
+    grok.context(uvcsite.IUVCSite)
 
     fields = uvcsite.Fields(IPerson)
 

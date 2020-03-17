@@ -23,7 +23,8 @@ setup(name='uvc.uploader',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'dolmen.file'
+          'dolmen.file',
+          'dolmen.widget.file'
           # -*- Extra requirements: -*-
       ],
       entry_points={
