@@ -28,9 +28,12 @@ setup(name='uvc.uploader',
           # -*- Extra requirements: -*-
       ],
       entry_points={
-         'fanstatic.libraries': [
-            'uvc.uploader = uvc.uploader.resources:library',
-            ],
-         'z3c.autoinclude.plugin': 'target=uvcsite', 
+          'fanstatic.libraries': [
+              'uvc.uploader = uvc.uploader.resources:library',
+          ],
+          'zeam.form.components': [
+              'files = uvc.uploader.field:register'
+          ],
+          'z3c.autoinclude.plugin': 'target=uvcsite',
       }
-      )
+)
