@@ -9,7 +9,22 @@
       $('#${widget.htmlId()}-input').filer({
         changeInput: true,
         showThumbs: true,
-        addMore: true
+        captions :{
+            button: "Dateien auswäheln",
+            feedback: "Wählen Sie die Dateien für den Upload",
+            feedback2: "Dateien wurden ausgewählt",
+            drop: "Drop file here to Upload",
+            removeConfirmation: "Are you sure you want to remove this file?",
+            errors: {
+                filesLimit: "Es sind nur {{fi-limit}} Datein für den Upload erlaubt.",
+                filesType: "Es sind nur Grafikformate erlaubt.",
+                filesSize: "{{fi-name}} ist zu groß! Es sind nur Uploads in einer Größe von  {{fi-fileMaxSize}} MB erlaubt.",
+                filesSizeAll: "Ihre ausgewählten Files sind zu groß! Bitte laden Sie nur Dateien mit mx. {{fi-maxSize}} MB hoch.",
+                folderUpload: "You are not allowed to upload folders."
+            }
+        },
+        addMore: true,
+        extensions: ['jpg', 'giv', 'png', 'pdf']
       });
     });
   </script>
