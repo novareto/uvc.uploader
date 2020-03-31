@@ -25,6 +25,7 @@ class IFilesField(Interface):
 class FilesField(Field):
     """A field handling multiple file representation
     """
+    missing_value = []
 
 
 class IFilesWidget(interfaces.IFieldWidget):
@@ -65,7 +66,10 @@ class FileWidgetExtractor(WidgetExtractor):
     def extract(self):
         value = self.request.form.get(self.identifier + '[]') or NO_VALUE
         if not isinstance(value, list):
-            value = [value]
+            if value is NO_VALUE:
+                value = []
+            else:
+                 value = [value]
         return (value, None)
 
 
