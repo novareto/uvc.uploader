@@ -29,6 +29,8 @@ class PersonForm(uvcsite.Form):
     grok.context(uvcsite.IUVCSite)
 
     fields = uvcsite.Fields(IPerson)
+    fields['files'].htmlAttributes.update({'data-jfiler-extensions': 'jpg, pdf'})
+    status = ""
 
     @uvcsite.action('Save')
     def handle_save(self):

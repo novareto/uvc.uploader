@@ -36,6 +36,10 @@ class IFilesWidget(interfaces.IFieldWidget):
 class FilesSchemaField(SchemaField):
     """Files field.
     """
+    htmlAttributes = {
+        'data-jfiler-changeInput': 'true',
+        'data-jfiler-showThumbs': 'true',
+    }
 
 
 @implementer(IFilesWidget)

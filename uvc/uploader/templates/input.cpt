@@ -1,14 +1,12 @@
 <div i18n:domain="dolmen.widget.file"
      tal:attributes="id widget.htmlId()">
+     <span tal:content="widget.htmlAttributes()"> </span>
   <input type="file"
 	 tal:attributes="id widget.htmlId() + '-input';
-			 name widget.identifier;" multiple="true" />
-
-  <script>
+			 name widget.identifier; widget.htmlAttributes()" multiple="true" />
+     <script>
     $(document).ready(function() {
       $('#${widget.htmlId()}-input').filer({
-        changeInput: true,
-        showThumbs: true,
         captions :{
             button: "Dateien auswählen",
             feedback: "Wählen Sie die Dateien für den Upload",
@@ -23,10 +21,7 @@
                 folderUpload: "You are not allowed to upload folders."
             }
         },
-        addMore: true,
-        fileMaxSize: 5.0,
-        extensions: ['jpg', 'gif', 'png', 'pdf']
       });
     });
-  </script>
+    </script>
 </div>
