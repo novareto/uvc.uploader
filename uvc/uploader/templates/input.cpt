@@ -3,10 +3,29 @@
   <input type="file"
 	 tal:attributes="id widget.htmlId() + '-input';
 			 name widget.identifier; widget.htmlAttributes()" multiple="true" />
-     <script>
+  <script>
     $(document).ready(function() {
-      $('#${widget.htmlId()}-input').filer({
-	addMore: true,
+        var files = <span tal:replace="widget.getFiles()"/>;
+        $('#${widget.htmlId()}-input').filer({
+	    addMore: true,
+            files: files,
+            onRemove: function (elm, file) {
+                if (file.url) {
+                    var response = $.ajax({
+                        type: "GET",
+                        url: file.url + '/delete',
+                        async: false
+                    });
+                    if (response.status == 200) {
+
+                        return true;
+                    }
+                    console.log('Cannot delete file.')
+                    return false;
+                } else {
+                    return true;
+                }
+        },
         captions :{
             button: "Dateien auswählen",
             feedback: "Wählen Sie die Dateien für den Upload",
