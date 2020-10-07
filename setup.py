@@ -23,9 +23,7 @@ setup(name='uvc.uploader',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'dolmen.file',
-          'dolmen.widget.file'
-          # -*- Extra requirements: -*-
+          'js.jquery',
       ],
       entry_points={
           'fanstatic.libraries': [

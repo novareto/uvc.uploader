@@ -3,9 +3,10 @@
 
 import grok
 from fanstatic import Library, Resource
-from uvc.tbskin.resources import main_css, main_js
+from js.jquery import jquery
+
 
 library = Library('uvc.uploader', 'static/jquery.filer')
 
 filer_css = Resource(library, 'css/jquery.filer.css')
-filer_js = Resource(library, 'js/jquery.filer.min.js', depends=[main_js])
+filer_js = Resource(library, 'js/jquery.filer.min.js', depends=[jquery])
