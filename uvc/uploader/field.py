@@ -54,8 +54,8 @@ class NamedFile(Persistent):
     @data.setter
     def data(self, data):
         # Handle case when data is a string
-        if isinstance(data, unicode):
-            data = data.encode('UTF-8')
+        if isinstance(data, bytes):
+            data = data.decode('iso-8859-15')
 
         if isinstance(data, str):
             self._data, self._size = FileChunk(data), len(data)
@@ -206,7 +206,7 @@ class FileWidgetExtractor(WidgetExtractor):
 
     def extract(self):
         content = self.form.getContentData().getContent()
-        existing = getattr(content, self.component._field.getName())
+        existing = getattr(content, self.component._field.getName(), [])
         value = self.request.form.get(self.identifier + '[]') or NO_VALUE
         if not isinstance(value, list):
             if value is NO_VALUE:

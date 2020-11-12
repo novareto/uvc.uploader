@@ -7,6 +7,6 @@ def clean_filename(name):
     match = _nameFinder.match(name)
     if match is not None:
         match = match.group(2)
-    if isinstance(name, unicode):
+    if isinstance(name, str):
         return match
-    return unicode(match, 'utf-8')
+    return match.decode('utf-8')
